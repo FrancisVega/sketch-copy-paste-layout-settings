@@ -6,5 +6,5 @@ Simple.
 
 Easy to remember.
 
-## TODO
+## TODO
 Copy / Paste Grids settings too
