@@ -1,0 +1,37 @@
+{
+    "name": "Artboard Layout Settings",
+    "description": "Artboard Layout Settings",
+    "author": "Francis Vega",
+    "author": "hisconer@gmail.com",
+    "homepage": "",
+    "version": 0.2,
+    "identifier": "com.example.sketch.layoutsettings",
+    "compatibleVersion": "4.3",
+    "bundleVersion": 1,
+    "commands": [
+        {
+            "name": "Copy Layout Settings",
+            "identifier": "copylayoutsettings",
+            "handlers" : {
+                "run" : "copyLayoutSettings"
+            },
+            "script": "sketch-layout-settings.js"
+        },
+        {
+            "name": "Paste Layout Settings",
+            "identifier": "pastelayoutsettings",
+            "handlers" : {
+                "run" : "pasteLayoutSettings"
+            },
+            "script": "sketch-layout-settings.js"
+        }
+    ],
+    "menu": {
+        "title": "Layout Settings",
+        "items": [
+            "copylayoutsettings",
+            "pastelayoutsettings"
+        ]
+    }
+}
+
