@@ -1,4 +1,4 @@
-#Copy / Paste Layout Settings
+# Copy / Paste Layout Settings
 
 Copy layout settings from one artboard and paste into multiples artboards.
 
