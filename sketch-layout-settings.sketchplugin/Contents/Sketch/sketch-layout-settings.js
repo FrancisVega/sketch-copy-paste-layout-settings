@@ -1,4 +1,5 @@
 const isArtboard = item => item.class() == 'MSArtboardGroup';
+const isSymbolMaster = item => item.class() == 'MSSymbolMaster';
 
 const writeFile = (filename, the_string) => {
   const path =[@"" stringByAppendingString: filename];
@@ -41,7 +42,7 @@ function pasteLayoutSettings (context) {
   const data = readFile(`${NSHomeDirectory()}/${TEMP_FILE_NAME}`);
 
   context.selection.slice()
-    .filter(isArtboard)
+    .filter(isArtboard && isSymbolMaster)
     .map(function(artboard) {
       artboard.layout().drawVertical = data.drawVertical;
       artboard.layout().setTotalWidth(data.totalWidth);
