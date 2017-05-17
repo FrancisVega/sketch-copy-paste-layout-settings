@@ -5,3 +5,6 @@ Copy layout settings from one artboard and paste into multiples artboards.
 Simple.
 
 Easy to remember.
+
+## TODO
+Copy / Paste Grids settings too
