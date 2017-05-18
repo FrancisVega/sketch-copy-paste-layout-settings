@@ -1,5 +1,8 @@
+const TEMP_FILE_NAME = '.sketch-layout-settings.json';
+
 const isArtboard = item => item.class() == 'MSArtboardGroup';
 const isSymbolMaster = item => item.class() == 'MSSymbolMaster';
+const isArtboardOrIsSymbolMaster = item => isArtboard || isSymbolMaster;
 
 const writeFile = (filename, the_string) => {
   const path =[@"" stringByAppendingString: filename];
@@ -12,9 +15,6 @@ const readFile = filePath => {
   return JSON.parse(fileContents.toString());
 }
 
-const TEMP_FILE_NAME = '.sketch-layout-settings.json';
-
-// GLOBAL
 function copyLayoutSettings (context) {
   const artboard = context.document.currentPage().currentArtboard();
   const artboardLayout = artboard.layout();
@@ -42,7 +42,7 @@ function pasteLayoutSettings (context) {
   const data = readFile(`${NSHomeDirectory()}/${TEMP_FILE_NAME}`);
 
   context.selection.slice()
-    .filter(isArtboard && isSymbolMaster)
+    .filter(isArtboardOrIsSymbolMaster)
     .map(function(artboard) {
       artboard.layout().drawVertical = data.drawVertical;
       artboard.layout().setTotalWidth(data.totalWidth);
