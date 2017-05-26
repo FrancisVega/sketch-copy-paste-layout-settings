@@ -18,6 +18,7 @@ const readFile = filePath => {
 function copyLayoutSettings (context) {
   const artboard = context.document.currentPage().currentArtboard();
   const artboardLayout = artboard.layout();
+  const artboardGrid = artboard.grid();
 
   const layout = {
     drawVertical: artboardLayout.drawVertical(),
@@ -33,6 +34,9 @@ function copyLayoutSettings (context) {
     gutterHeight: artboardLayout.gutterHeight(),
     rowHeightMultiplication: artboardLayout.rowHeightMultiplication(),
     drawHorizontalLines: artboardLayout.drawHorizontalLines(),
+
+    gridSize: artboardGrid.gridSize(),
+    thickGridTimes: artboardGrid.thickGridTimes(),
   };
 
   writeFile(`${NSHomeDirectory()}/${TEMP_FILE_NAME}`, JSON.stringify(layout));
@@ -57,5 +61,8 @@ function pasteLayoutSettings (context) {
       artboard.layout().gutterHeight = data.gutterHeight;
       artboard.layout().rowHeightMultiplication = data.rowHeightMultiplication;
       artboard.layout().drawHorizontalLines = data.drawHorizontalLines;
+
+      artboard.grid().gridSize = data.gridSize;
+      artboard.grid().thickGridTimes = data.thickGridTimes;
     });
 }
