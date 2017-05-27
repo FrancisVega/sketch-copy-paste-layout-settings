@@ -10,7 +10,7 @@
     "bundleVersion": 1,
     "commands": [
         {
-            "name": "Copy Layout Settings",
+            "name": "Copy Layout/Grid",
             "identifier": "copylayoutsettings",
             "handlers" : {
                 "run" : "copySettings"
@@ -18,7 +18,7 @@
             "script": "sketch-layout-settings.js"
         },
         {
-            "name": "Paste Layout Settings",
+            "name": "Paste Layout/Grid",
             "identifier": "pastelayoutsettings",
             "handlers" : {
                 "run" : "pasteSettings"

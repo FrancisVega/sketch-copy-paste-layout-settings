@@ -1,5 +1,5 @@
 # Copy / Paste Layout Settings
-Copy layout settings from one artboard and paste into multiples artboards.
+Copy layout and Grid settings from one artboard and paste into multiples artboards.
 
 Simple.
 
@@ -17,6 +17,6 @@ Easy to remember.
 Or download and double click in sketch-layout-settings.sketchplugin
 
 ## How to use
-1 - Select one artboard then select Copy Layout Settings from Plugins menu.
+1 - Select one artboard then select Copy Layout/Grid from Plugins menu.
 
-2 - Select one or more artboards and select Paste Layout Settings from Plugins menu.
+2 - Select one or more artboards and select Paste Layout/Grid from Plugins menu.
