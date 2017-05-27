@@ -1,4 +1,4 @@
-# Copy / Paste Layout Settings
+# Copy / Paste Layout and Grid Settings
 Copy layout and Grid settings from one artboard and paste into multiples artboards.
 
 Simple.
