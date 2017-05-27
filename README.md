@@ -20,6 +20,3 @@ Or download and double click in sketch-layout-settings.sketchplugin
 1 - Select one artboard then select Copy Layout Settings from Plugins menu.
 
 2 - Select one or more artboards and select Paste Layout Settings from Plugins menu.
-
-## TODO
-Copy / Paste Grids settings too

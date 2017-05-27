@@ -15,54 +15,82 @@ const readFile = filePath => {
   return JSON.parse(fileContents.toString());
 }
 
-function copyLayoutSettings (context) {
-  const artboard = context.document.currentPage().currentArtboard();
-  const artboardLayout = artboard.layout();
-  const artboardGrid = artboard.grid();
-
-  const layout = {
-    drawVertical: artboardLayout.drawVertical(),
-    totalWidth: artboardLayout.totalWidth(),
-    horizontalOffset: artboardLayout.horizontalOffset(),
-    numberOfColumns: artboardLayout.numberOfColumns(),
-    guttersOutside: artboardLayout.guttersOutside(),
-
-    gutterWidth: artboardLayout.gutterWidth(),
-    columnWidth: artboardLayout.columnWidth(),
-
-    drawHorizontal: artboardLayout.drawHorizontal(),
-    gutterHeight: artboardLayout.gutterHeight(),
-    rowHeightMultiplication: artboardLayout.rowHeightMultiplication(),
-    drawHorizontalLines: artboardLayout.drawHorizontalLines(),
-
-    gridSize: artboardGrid.gridSize(),
-    thickGridTimes: artboardGrid.thickGridTimes(),
-  };
-
-  writeFile(`${NSHomeDirectory()}/${TEMP_FILE_NAME}`, JSON.stringify(layout));
+const getLayoutSettings = artboard => {
+  const abLayout = artboard.layout();
+  console.log(abLayout);
+  return {
+    drawVertical: abLayout.drawVertical(),
+    totalWidth: abLayout.totalWidth(),
+    horizontalOffset: abLayout.horizontalOffset(),
+    numberOfColumns: abLayout.numberOfColumns(),
+    guttersOutside: abLayout.guttersOutside(),
+    gutterWidth: abLayout.gutterWidth(),
+    columnWidth: abLayout.columnWidth(),
+    drawHorizontal: abLayout.drawHorizontal(),
+    gutterHeight: abLayout.gutterHeight(),
+    rowHeightMultiplication: abLayout.rowHeightMultiplication(),
+    drawHorizontalLines: abLayout.drawHorizontalLines()
+  }
 }
 
-function pasteLayoutSettings (context) {
+const getGridSettings = artboard => {
+  const abGrid = artboard.grid();
+  return {
+    gridSize: abGrid.gridSize(),
+    thickGridTimes: abGrid.thickGridTimes()
+  }
+}
+
+const setLayoutSettings = artboard => {  }
+const setGridSettings = artboard => {  }
+
+function copySettings (context) {
+  const artboard = context.document.currentPage().currentArtboard();
+  let layout = {}
+  let grid = {}
+
+  try {
+    layout = getLayoutSettings(artboard);
+  } catch(e) { log(e) }
+
+  try {
+    grid = getGridSettings(artboard);
+  } catch(e) { log(e) }
+
+  const data = {
+    layout,
+    grid
+  }
+
+  writeFile(`${NSHomeDirectory()}/${TEMP_FILE_NAME}`, JSON.stringify(data));
+}
+
+function pasteSettings (context) {
   const data = readFile(`${NSHomeDirectory()}/${TEMP_FILE_NAME}`);
+  const layout = data.layout;
+  const grid = data.grid;
 
   context.selection.slice()
     .filter(isArtboardOrIsSymbolMaster)
-    .map(function(artboard) {
-      artboard.layout().drawVertical = data.drawVertical;
-      artboard.layout().setTotalWidth(data.totalWidth);
-      artboard.layout().horizontalOffset = (artboard.frame().width() - data.totalWidth) / 2;
-      artboard.layout().setNumberOfColumns(data.numberOfColumns);
-      artboard.layout().setGuttersOutside(data.guttersOutside);
+    .map(artboard => {
+      const abLayout = artboard.layout();
+      const abGrid = artboard.grid();
 
-      artboard.layout().setGutterWidth(data.gutterWidth);
-      artboard.layout().setColumnWidth(data.columnWidth);
+      abLayout.drawVertical = layout.drawVertical;
+      abLayout.setTotalWidth(layout.totalWidth);
+      abLayout.horizontalOffset = (artboard.frame().width() - layout.totalWidth) / 2;
+      abLayout.setNumberOfColumns(layout.numberOfColumns);
+      abLayout.setGuttersOutside(layout.guttersOutside);
 
-      artboard.layout().drawHorizontal = data.drawHorizontal;
-      artboard.layout().gutterHeight = data.gutterHeight;
-      artboard.layout().rowHeightMultiplication = data.rowHeightMultiplication;
-      artboard.layout().drawHorizontalLines = data.drawHorizontalLines;
+      abLayout.setGutterWidth(layout.gutterWidth);
+      abLayout.setColumnWidth(layout.columnWidth);
 
-      artboard.grid().gridSize = data.gridSize;
-      artboard.grid().thickGridTimes = data.thickGridTimes;
+      abLayout.drawHorizontal = layout.drawHorizontal;
+      abLayout.gutterHeight = layout.gutterHeight;
+      abLayout.rowHeightMultiplication = layout.rowHeightMultiplication;
+      abLayout.drawHorizontalLines = layout.drawHorizontalLines;
+
+      abGrid.gridSize = grid.gridSize;
+      abGrid.thickGridTimes = grid.thickGridTimes;
     });
 }

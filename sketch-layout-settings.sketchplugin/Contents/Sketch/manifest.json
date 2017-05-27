@@ -4,7 +4,7 @@
     "author": "Francis Vega",
     "author": "hisconer@gmail.com",
     "homepage": "",
-    "version": 0.5,
+    "version": 0.6,
     "identifier": "com.example.sketch.layoutsettings",
     "compatibleVersion": "4.3",
     "bundleVersion": 1,
@@ -13,7 +13,7 @@
             "name": "Copy Layout Settings",
             "identifier": "copylayoutsettings",
             "handlers" : {
-                "run" : "copyLayoutSettings"
+                "run" : "copySettings"
             },
             "script": "sketch-layout-settings.js"
         },
@@ -21,7 +21,7 @@
             "name": "Paste Layout Settings",
             "identifier": "pastelayoutsettings",
             "handlers" : {
-                "run" : "pasteLayoutSettings"
+                "run" : "pasteSettings"
             },
             "script": "sketch-layout-settings.js"
         }
