@@ -1,4 +1,6 @@
 # Copy / Paste Layout and Grid Settings
+[![Download from Sketchpacks.com](https://badges.sketchpacks.com/plugins/com.example.sketch.layoutsettings/version.svg)](https://api.sketchpacks.com/v1/plugins/com.example.sketch.layoutsettings/download) [![Compatible Sketch Version](https://badges.sketchpacks.com/plugins/com.example.sketch.layoutsettings/compatibility.svg)](https://sketchpacks.com/FrancisVega/sketch-copy-paste-layout-settings)
+
 Copy layout and Grid settings from one artboard and paste into multiples artboards.
 
 Simple.
