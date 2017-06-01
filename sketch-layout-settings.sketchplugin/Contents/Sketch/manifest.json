@@ -6,6 +6,7 @@
     "homepage": "",
     "version": 0.6,
     "identifier": "com.example.sketch.layoutsettings",
+    "appcast": "https://api.sketchpacks.com/v1/plugins/com.example.sketch.layoutsettings/appcast",
     "compatibleVersion": "4.3",
     "bundleVersion": 1,
     "commands": [
