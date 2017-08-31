@@ -78,7 +78,8 @@ function pasteSettings (context) {
 
       abLayout.drawVertical = layout.drawVertical;
       abLayout.setTotalWidth(layout.totalWidth);
-      abLayout.horizontalOffset = (artboard.frame().width() - layout.totalWidth) / 2;
+      //abLayout.horizontalOffset = (artboard.frame().width() - layout.totalWidth) / 2;
+      abLayout.horizontalOffset = layout.horizontalOffset;
       abLayout.setNumberOfColumns(layout.numberOfColumns);
       abLayout.setGuttersOutside(layout.guttersOutside);
 
