@@ -90,8 +90,10 @@ function pasteSettings (context) {
       abLayout.gutterHeight = layout.gutterHeight;
       abLayout.rowHeightMultiplication = layout.rowHeightMultiplication;
       abLayout.drawHorizontalLines = layout.drawHorizontalLines;
-
-      abGrid.gridSize = grid.gridSize;
-      abGrid.thickGridTimes = grid.thickGridTimes;
+      
+      if (abGrid) {
+        abGrid.gridSize = grid.gridSize;
+        abGrid.thickGridTimes = grid.thickGridTimes;
+      }
     });
 }
