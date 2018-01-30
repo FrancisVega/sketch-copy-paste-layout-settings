@@ -17,7 +17,6 @@ const readFile = filePath => {
 
 const getLayoutSettings = artboard => {
   const abLayout = artboard.layout();
-  console.log(abLayout);
   return {
     drawVertical: abLayout.drawVertical(),
     totalWidth: abLayout.totalWidth(),
@@ -29,7 +28,8 @@ const getLayoutSettings = artboard => {
     drawHorizontal: abLayout.drawHorizontal(),
     gutterHeight: abLayout.gutterHeight(),
     rowHeightMultiplication: abLayout.rowHeightMultiplication(),
-    drawHorizontalLines: abLayout.drawHorizontalLines()
+    drawHorizontalLines: abLayout.drawHorizontalLines(),
+    isEnabled: abLayout.isEnabled()
   }
 }
 
@@ -37,7 +37,8 @@ const getGridSettings = artboard => {
   const abGrid = artboard.grid();
   return {
     gridSize: abGrid.gridSize(),
-    thickGridTimes: abGrid.thickGridTimes()
+    thickGridTimes: abGrid.thickGridTimes(),
+    isEnabled: abGrid.isEnabled()
   }
 }
 
@@ -67,33 +68,38 @@ function copySettings (context) {
 
 function pasteSettings (context) {
   const data = readFile(`${NSHomeDirectory()}/${TEMP_FILE_NAME}`);
-  const layout = data.layout;
-  const grid = data.grid;
+  const layoutSetting = data.layout;
+  const gridSetting = data.grid;
 
   context.selection.slice()
     .filter(isArtboardOrIsSymbolMaster)
     .map(artboard => {
-      const abLayout = artboard.layout();
-      const abGrid = artboard.grid();
 
-      abLayout.drawVertical = layout.drawVertical;
-      abLayout.setTotalWidth(layout.totalWidth);
-      //abLayout.horizontalOffset = (artboard.frame().width() - layout.totalWidth) / 2;
-      abLayout.horizontalOffset = layout.horizontalOffset;
-      abLayout.setNumberOfColumns(layout.numberOfColumns);
-      abLayout.setGuttersOutside(layout.guttersOutside);
+      const layout = MSLayoutGrid.alloc().init();
+      const grid = MSSimpleGrid.alloc().init();
 
-      abLayout.setGutterWidth(layout.gutterWidth);
-      abLayout.setColumnWidth(layout.columnWidth);
+      layout.setDrawVertical(layoutSetting.drawVertical);
+      layout.setTotalWidth(layoutSetting.totalWidth);
+      layout.setHorizontalOffset(layoutSetting.horizontalOffset);
+      layout.setNumberOfColumns(layoutSetting.numberOfColumns);
+      layout.setGuttersOutside(layoutSetting.guttersOutside);
 
-      abLayout.drawHorizontal = layout.drawHorizontal;
-      abLayout.gutterHeight = layout.gutterHeight;
-      abLayout.rowHeightMultiplication = layout.rowHeightMultiplication;
-      abLayout.drawHorizontalLines = layout.drawHorizontalLines;
-      
-      if (abGrid) {
-        abGrid.gridSize = grid.gridSize;
-        abGrid.thickGridTimes = grid.thickGridTimes;
-      }
+      layout.setGutterWidth(layoutSetting.gutterWidth);
+      layout.setColumnWidth(layoutSetting.columnWidth);
+
+      layout.setDrawHorizontal(layoutSetting.drawHorizontal);
+      layout.setGutterHeight(layoutSetting.gutterHeight);
+      layout.setRowHeightMultiplication(layoutSetting.rowHeightMultiplication);
+      layout.setDrawHorizontalLines(layoutSetting.drawHorizontalLines);
+
+      layout.setIsEnabled(layoutSetting.isEnabled);
+      artboard.setLayout(layout);
+
+      grid.setGridSize(gridSetting.gridSize);
+      grid.setThickGridTimes(gridSetting.thickGridTimes);
+
+      grid.setIsEnabled(gridSetting.isEnabled);
+      artboard.setGrid(grid);
+
     });
 }
