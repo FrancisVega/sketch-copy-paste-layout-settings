@@ -2,12 +2,12 @@
     "name": "Artboard Layout Settings",
     "description": "Artboard Layout Settings",
     "author": "Francis Vega",
-    "author": "hisconer@gmail.com",
+    "email": "hisconer@gmail.com",
     "homepage": "",
-    "version": 0.8,
+    "version": "1.0",
     "identifier": "com.example.sketch.layoutsettings",
-    "appcast": "https://api.sketchpacks.com/v1/plugins/com.example.sketch.layoutsettings/appcast",
-    "compatibleVersion": "4.3",
+    "appcast": "https://raw.githubusercontent.com/FrancisVega/sketch-copy-paste-layout-settings/master/appcast.xml",
+    "compatibleVersion": "40",
     "bundleVersion": 1,
     "commands": [
         {
