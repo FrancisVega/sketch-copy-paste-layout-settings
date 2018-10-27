@@ -1,38 +1,35 @@
 {
-    "name": "Artboard Layout Settings",
-    "description": "Artboard Layout Settings",
-    "author": "Francis Vega",
-    "email": "hisconer@gmail.com",
-    "homepage": "",
-    "version": "1.0",
-    "identifier": "com.example.sketch.layoutsettings",
-    "appcast": "https://raw.githubusercontent.com/FrancisVega/sketch-copy-paste-layout-settings/master/appcast.xml",
-    "compatibleVersion": "40",
-    "bundleVersion": 1,
-    "commands": [
-        {
-            "name": "Copy Layout/Grid",
-            "identifier": "copylayoutsettings",
-            "handlers" : {
-                "run" : "copySettings"
-            },
-            "script": "sketch-layout-settings.js"
-        },
-        {
-            "name": "Paste Layout/Grid",
-            "identifier": "pastelayoutsettings",
-            "handlers" : {
-                "run" : "pasteSettings"
-            },
-            "script": "sketch-layout-settings.js"
-        }
-    ],
-    "menu": {
-        "title": "Layout Settings",
-        "items": [
-            "copylayoutsettings",
-            "pastelayoutsettings"
-        ]
+  "name": "Artboard Layout Settings",
+  "description": "Artboard Layout Settings",
+  "author": "Francis Vega",
+  "email": "hisconer@gmail.com",
+  "homepage": "",
+  "version": "1.1",
+  "identifier": "com.example.sketch.layoutsettings",
+  "appcast": "https://raw.githubusercontent.com/FrancisVega/sketch-copy-paste-layout-settings/master/appcast.xml",
+  "compatibleVersion": "40",
+  "icon": "icon.png",
+  "bundleVersion": 1,
+  "commands": [
+    {
+      "name": "Copy Layout/Grid",
+      "identifier": "copylayoutsettings",
+      "handlers": {
+        "run": "copySettings"
+      },
+      "script": "sketch-layout-settings.js"
+    },
+    {
+      "name": "Paste Layout/Grid",
+      "identifier": "pastelayoutsettings",
+      "handlers": {
+        "run": "pasteSettings"
+      },
+      "script": "sketch-layout-settings.js"
     }
+  ],
+  "menu": {
+    "title": "Layout Settings",
+    "items": ["copylayoutsettings", "pastelayoutsettings"]
+  }
 }
-
