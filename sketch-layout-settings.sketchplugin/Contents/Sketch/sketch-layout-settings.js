@@ -66,7 +66,11 @@ function copySettings (context) {
   writeFile(`${NSHomeDirectory()}/${TEMP_FILE_NAME}`, JSON.stringify(data));
 }
 
-function pasteSettings (context) {
+function pasteCenterSettings(context) {
+  pasteSettings(context, true)
+}
+
+function pasteSettings (context, isCenter) {
   const data = readFile(`${NSHomeDirectory()}/${TEMP_FILE_NAME}`);
   const layoutSetting = data.layout;
   const gridSetting = data.grid;
@@ -80,7 +84,13 @@ function pasteSettings (context) {
 
       layout.setDrawVertical(layoutSetting.drawVertical);
       layout.setTotalWidth(layoutSetting.totalWidth);
-      layout.setHorizontalOffset(layoutSetting.horizontalOffset);
+
+      if (isCenter) {
+        layout.setHorizontalOffset(artboard.frame().width() - layoutSetting.totalWidth) / 2;
+      } else {
+        layout.setHorizontalOffset(layoutSetting.horizontalOffset);
+      }
+
       layout.setNumberOfColumns(layoutSetting.numberOfColumns);
       layout.setGuttersOutside(layoutSetting.guttersOutside);
 

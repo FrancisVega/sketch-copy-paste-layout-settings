@@ -2,7 +2,8 @@
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
   <channel>
     <item>
-      <enclosure url="https://github.com/FrancisVega/sketch-copy-paste-layout-settings/releases/download/1.1/sketch-copy-paste-layout-settings.1.1.zip" sparkle:version="1.1"/>
+      <enclosure url="https://github.com/FrancisVega/sketch-copy-paste-layout-settings/files/2521679/sketch-layout-settings.sketchplugin.1.2.zip" sparkle:version="1.2"/>
+                      
     </item>
   </channel>
 </rss>

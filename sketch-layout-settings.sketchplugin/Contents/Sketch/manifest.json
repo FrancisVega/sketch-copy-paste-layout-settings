@@ -4,7 +4,7 @@
   "author": "Francis Vega",
   "email": "hisconer@gmail.com",
   "homepage": "",
-  "version": "1.1",
+  "version": "1.2",
   "identifier": "com.example.sketch.layoutsettings",
   "appcast": "https://raw.githubusercontent.com/FrancisVega/sketch-copy-paste-layout-settings/master/appcast.xml",
   "compatibleVersion": "40",
@@ -26,10 +26,18 @@
         "run": "pasteSettings"
       },
       "script": "sketch-layout-settings.js"
+    },
+    {
+      "name": "Paste Layout/Grid (Center)",
+      "identifier": "pastecenterlayoutsettings",
+      "handlers": {
+        "run": "pasteCenterSettings"
+      },
+      "script": "sketch-layout-settings.js"
     }
   ],
   "menu": {
     "title": "Layout Settings",
-    "items": ["copylayoutsettings", "pastelayoutsettings"]
+    "items": ["copylayoutsettings", "pastelayoutsettings", "pastecenterlayoutsettings"]
   }
 }
