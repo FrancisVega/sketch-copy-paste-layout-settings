@@ -86,7 +86,7 @@ function pasteSettings (context, isCenter) {
       layout.setTotalWidth(layoutSetting.totalWidth);
 
       if (isCenter) {
-        layout.setHorizontalOffset(artboard.frame().width() - layoutSetting.totalWidth) / 2;
+        layout.setHorizontalOffset((artboard.frame().width() - layoutSetting.totalWidth) / 2);
       } else {
         layout.setHorizontalOffset(layoutSetting.horizontalOffset);
       }
