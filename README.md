@@ -1,5 +1,4 @@
 # Copy / Paste Layout and Grid Settings
-[![Download from Sketchpacks.com](https://badges.sketchpacks.com/plugins/com.example.sketch.layoutsettings/version.svg)](https://api.sketchpacks.com/v1/plugins/com.example.sketch.layoutsettings/download) [![Compatible Sketch Version](https://badges.sketchpacks.com/plugins/com.example.sketch.layoutsettings/compatibility.svg)](https://sketchpacks.com/FrancisVega/sketch-copy-paste-layout-settings)
 
 Copy layout and Grid settings from one artboard and paste into multiples artboards.
 
@@ -9,14 +8,8 @@ Easy to remember.
 
 ![sketchlayoutsettings](https://raw.githubusercontent.com/FrancisVega/sketch-copy-paste-layout-settings/master/sketch-layout-settings.sketchplugin/Contents/Resources/sketch-layout--demo.gif)
 
-<a href="http://bit.ly/SketchRunnerWebsite">
-  <img width="160" height="40" src="http://sketchrunner.com/img/badge_blue.png" >
-</a>
-
 ## Install
-[![Install Sketch Layout Settings with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install Sketch Layout Settings with Sketchpacks")](https://sketchpacks.com/FrancisVega/sketch-copy-paste-layout-settings/install)
-
-Or download and double click in sketch-layout-settings.sketchplugin
+Download and double click in sketch-layout-settings.sketchplugin
 
 ## How to use
 1 - Select one artboard then select Copy Layout/Grid from Plugins menu.
